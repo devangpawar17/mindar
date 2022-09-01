@@ -10,17 +10,17 @@
   <body>
     <a-scene mindar-image="imageTargetSrc: targets.mind; maxTrack: 2" color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
       <a-assets>
-        <a-asset-item id="bearModel" src="model/basketball_court.glb"></a-asset-item>
-        <a-asset-item id="raccoonModel" src="model/building.gltf"></a-asset-item>
+        <a-asset-item id="book" src="model/basketball_court.glb"></a-asset-item>
+        <a-asset-item id="spidey" src="model/building.gltf"></a-asset-item>
       </a-assets>
 
       <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
 
       <a-entity mindar-image-target="targetIndex: 0">
-        <a-gltf-model rotation="90 0 0 " position="0 0 0.1" scale="0.0001 0.0001 0.0001" src="#bearModel">
+        <a-gltf-model rotation="90 0 0 " position="0 0 0.1" scale="0.0001 0.0001 0.0001" src="#book">
       </a-entity>
       <a-entity mindar-image-target="targetIndex: 1">
-        <a-gltf-model rotation="90 0 0 " position="0 0 0.1" scale="0.0003 0.0003 0.0003" src="raccoonModel" >
+        <a-gltf-model rotation="90 0 0 " position="0 0 0.1" scale="0.0003 0.0003 0.0003" src="#spidey" >
       </a-entity>
     </a-scene>
   </body>
