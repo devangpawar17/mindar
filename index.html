@@ -30,9 +30,9 @@
   <script>
     const scene = document.getElementById('scene')
     
-    document.querySelectorAll('[id=model]').forEach(elem=>{
-    scene.addEventListener('touchmove', event => {movingTouch(event,elem)})
-    })
+    // document.querySelectorAll('[id=model]').forEach(elem=>{
+    // scene.addEventListener('touchmove', event => {movingTouch(event,elem)})
+    // })
 
     const model = document.getElementById('model')
   
@@ -46,6 +46,7 @@
   
       const curr = elem.getAttribute('scale')
       const scale = (ev.scale - 1)*0.0001
+     
   
       elem.setAttribute('scale', {
         'x': curr.x + scale,
@@ -66,8 +67,8 @@
       for (touch of touches) {
         elem.setAttribute('rotation', {
           'x': curr.x - touch.pageY*0.01,
-          // 'y': curr.y + touch.pageX*0.01,
-          // 'z': curr.z
+          'y': curr.y + touch.pageX*0.01,
+          'z': curr.z
         })
       }
     }
