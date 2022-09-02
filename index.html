@@ -36,14 +36,14 @@
     const pinch = new Hammer.Pinch()
     manager.add(pinch)
   
-    
-    manager.on('pinch', function(ev) {
-      if (!model) return
+    document.querySelectorAll('[id=model]').forEach(elem=>{
+      manager.on('pinch', function(ev) {
+      if (!elem) return
   
-      const curr = model.getAttribute('scale')
+      const curr = elem.getAttribute('scale')
       const scale = (ev.scale - 1)*0.0001
   
-      model.setAttribute('scale', {
+      elem.setAttribute('scale', {
         'x': curr.x + scale,
         'y': curr.y + scale,
         'z': curr.z + scale
@@ -51,19 +51,21 @@
     })
   
     const movingTouch = event => {
-      if (!model) return
+      if (!elem) return
   
-      const curr = model.getAttribute('rotation')
+      const curr = elem.getAttribute('rotation')
       let touches = event.changedTouches
   
       for (touch of touches) {
-        model.setAttribute('rotation', {
+        elem.setAttribute('rotation', {
           'x': curr.x - touch.pageY*0.01,
           'y': curr.y + touch.pageX*0.01,
           'z': curr.z
         })
       }
     }
+    })
+    
   </script>
 
 
