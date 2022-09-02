@@ -30,9 +30,9 @@
   <script>
     const scene = document.getElementById('scene')
     
-     document.querySelectorAll('[id=model]').forEach(elem=>{
-     scene.addEventListener('touchmove', event => {movingTouch(event,elem)})
-     })
+    //  document.querySelectorAll('[id=model]').forEach(elem=>{
+    //  scene.addEventListener('touchmove', event => {movingTouch(event,elem)})
+    //  })
 
     const model = document.getElementById('model')
   
@@ -45,7 +45,7 @@
       if (!elem) return
   
       const curr = elem.getAttribute('scale')
-      const scale = (ev.scale - 1)*0.000001
+      const scale = (ev.scale - 1)*0.00001
      
   
       elem.setAttribute('scale', {
