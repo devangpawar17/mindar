@@ -40,7 +40,7 @@
       if (!model) return
   
       const curr = model.getAttribute('scale')
-      const scale = (ev.scale - 1)*0.01
+      const scale = (ev.scale - 1)*0.0001
   
       model.setAttribute('scale', {
         'x': curr.x + scale,
@@ -57,8 +57,8 @@
   
       for (touch of touches) {
         model.setAttribute('rotation', {
-          'x': curr.x - touch.pageY*0.0001,
-          'y': curr.y + touch.pageX*0.0001,
+          'x': curr.x - touch.pageY*0.01,
+          'y': curr.y + touch.pageX*0.01,
           'z': curr.z
         })
       }
