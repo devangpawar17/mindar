@@ -30,9 +30,9 @@
   <script>
     const scene = document.getElementById('scene')
     
-    // document.querySelectorAll('[id=model]').forEach(elem=>{
-    // scene.addEventListener('touchmove', event => {movingTouch(event,elem)})
-    // })
+     document.querySelectorAll('[id=model]').forEach(elem=>{
+     scene.addEventListener('touchmove', event => {movingTouch(event,elem)})
+     })
 
     const model = document.getElementById('model')
   
@@ -66,74 +66,15 @@
   
       for (touch of touches) {
         elem.setAttribute('rotation', {
-          'x': curr.x - touch.pageY*0.01,
-          'y': curr.y + touch.pageX*0.01,
+          'x': curr.x - touch.pageY*0.0001,
+          'y': curr.y + touch.pageX*0.0001,
           'z': curr.z
         })
       }
     }
 
 
-    ///
 
-
-    var myElement = scene
-var myObject = model
-
-// create a simple instance
-// by default, it only adds horizontal recognizers
-var mc = new Hammer(myElement);
-
-// let the pan gesture support all directions.
-// this will block the vertical scrolling on a touch-device while on the element
-mc.get('pan').set({ direction: Hammer.DIRECTION_ALL });
-
-// listen to events...
-var distX = -45;
-var distY = 45;
-var distZ = 30;
-var friction = 0.01;
-myObject.style.webkitTransform = 'rotateY(' + distX + 'deg) rotateX(' + distY + 'deg) rotateZ(' + distZ + 'deg)';
-
-mc.on("panstart", function(ev) {
-	
-});
-mc.on("panmove", function(ev) {
-	myObject.style.webkitTransform = 'rotateY(' + distX + 'deg) rotateX(' + distY + 'deg) rotateZ(' + distZ + 'deg)';
-	console.log(Math.abs(ev.velocity));
-});
-mc.on("panend", function(ev) {
-	myObject.style.webkitTransform = 'rotateY(' + distX + 'deg) rotateX(' + distY + 'deg) rotateZ(' + distZ + 'deg)';
-});
-
-mc.on("panleft panright panup pandown", function(ev) {
-	if (Math.abs(ev.velocity) >= 3.5) {
-		friction = 1;
-	
-	} else {
-		friction = 0.01;
-	}
-	
-  if (ev.type == 'panleft' || ev.type == 'panright') {
-    distX = parseFloat(myObject.style.webkitTransform.split(' ')[0].split(/[()]/)[1]) + (ev.deltaX * friction);
-  }
-  if (ev.type == 'panup' || ev.type == 'pandown') {
-    distY = parseFloat(myObject.style.webkitTransform.split(' ')[1].split(/[()]/)[1]) + (ev.deltaY * friction);
-  }
-	
-	// console.log(dist, ndist);
-});
-
-var currentRotation = 0;
-mc.get('rotate').set({ enable: true });
-mc.on("rotatestart rotateend rotatemove", function(ev) {
-	var rotation = parseFloat(myObject.style.webkitTransform.split(' ')[2].split(/[()]/)[1]) + (ev.rotation/100);
-	distZ =  parseFloat(myObject.style.webkitTransform.split(' ')[2].split(/[()]/)[1]) - rotation;
-  myObject.style.webkitTransform = 'rotateY(' + distX + 'deg) rotateX(' + distY + 'deg) rotateZ(' + distZ + 'deg)';
-});
-mc.on("rotateend", function(ev) {
-	currentRotation = parseFloat(myObject.style.webkitTransform.split(' ')[2].split(/[()]/)[1]);
-});
 
     
     
