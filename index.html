@@ -30,7 +30,7 @@
   <script>
     const scene = document.getElementById('scene')
     scene.addEventListener('touchmove', event => {movingTouch(event)})
-    const model = document.getElementsByTagName('a-gltf-model')
+    const model = document.getElementById('model')
   
     const manager = new Hammer.Manager(scene)
     const pinch = new Hammer.Pinch()
