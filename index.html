@@ -30,7 +30,7 @@
   <script>
     const scene = document.getElementById('scene')
     scene.addEventListener('touchmove', event => {movingTouch(event)})
-    const model = document.getElementById('model')
+    // const model = document.getElementById('model')
   
     const manager = new Hammer.Manager(scene)
     const pinch = new Hammer.Pinch()
@@ -42,11 +42,14 @@
       const curr = model.getAttribute('scale')
       const scale = (ev.scale - 1)*0.0001
   
-      model.setAttribute('scale', {
+      document.querySelectorAll('[id="model"]').forEach(elem=>{
+        elem.setAttribute('scale', {
         'x': curr.x + scale,
         'y': curr.y + scale,
         'z': curr.z + scale
       })
+      })
+    
     })
   
     const movingTouch = event => {
