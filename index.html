@@ -29,7 +29,11 @@
 
   <script>
     const scene = document.getElementById('scene')
+    
+    document.querySelectorAll('[id=model]').forEach(elem=>{
     scene.addEventListener('touchmove', event => {movingTouch(event)})
+    })
+
     const model = document.getElementById('model')
   
     const manager = new Hammer.Manager(scene)
@@ -52,22 +56,22 @@
   })
   
   
-  document.querySelectorAll('[id=model]').forEach(elem=>{
-    const movingTouch = event => {
-      if (!elem) return
   
-      const curr = elem.getAttribute('rotation')
+    const movingTouch = event => {
+      if (!model) return
+  
+      const curr = model.getAttribute('rotation')
       let touches = event.changedTouches
   
       for (touch of touches) {
-        elem.setAttribute('rotation', {
+        model.setAttribute('rotation', {
           'x': curr.x - touch.pageY*0.01,
           'y': curr.y + touch.pageX*0.01,
           'z': curr.z
         })
       }
     }
-  })
+
     
     
   </script>
