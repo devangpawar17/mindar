@@ -49,7 +49,10 @@
         'z': curr.z + scale
       })
     })
+  })
   
+  
+  document.querySelectorAll('[id=model]').forEach(elem=>{
     const movingTouch = event => {
       if (!elem) return
   
@@ -64,7 +67,8 @@
         })
       }
     }
-    })
+  })
+    
     
   </script>
 
