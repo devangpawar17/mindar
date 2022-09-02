@@ -124,6 +124,17 @@ mc.on("panleft panright panup pandown", function(ev) {
 	// console.log(dist, ndist);
 });
 
+var currentRotation = 0;
+mc.get('rotate').set({ enable: true });
+mc.on("rotatestart rotateend rotatemove", function(ev) {
+	var rotation = parseFloat(myObject.style.webkitTransform.split(' ')[2].split(/[()]/)[1]) + (ev.rotation/100);
+	distZ =  parseFloat(myObject.style.webkitTransform.split(' ')[2].split(/[()]/)[1]) - rotation;
+  myObject.style.webkitTransform = 'rotateY(' + distX + 'deg) rotateX(' + distY + 'deg) rotateZ(' + distZ + 'deg)';
+});
+mc.on("rotateend", function(ev) {
+	currentRotation = parseFloat(myObject.style.webkitTransform.split(' ')[2].split(/[()]/)[1]);
+});
+
     
     
   </script>
