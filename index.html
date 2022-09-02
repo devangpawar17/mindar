@@ -40,7 +40,7 @@
       if (!model) return
   
       const curr = model.getAttribute('scale')
-      const scale = (ev.scale - 1)*0.0001
+      const scale = (ev.scale - 1)*0.01
   
       model.setAttribute('scale', {
         'x': curr.x + scale,
