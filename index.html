@@ -70,8 +70,8 @@
   
       for (touch of touches) {
         elem.setAttribute('rotation', {
-          'x': curr.x + touch.pageX*0.01,
-          'y': curr.y,
+          'x': curr.x,
+          'y': curr.y + touch.pageX*0.01,
           'z': curr.z
         })
       }
