@@ -8,24 +8,29 @@
     <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.1.5/dist/mindar-image-aframe.prod.js"></script>
     <script src="https://hammerjs.github.io/dist/hammer.js"></script>
 
+    <script src="https://raw.githack.com/fcor/arjs-gestures/master/dist/gestures.js"></script> 
+
   </head>
   <body>
-    <a-scene mindar-image="imageTargetSrc: targets.mind; maxTrack: 2" color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false" id="scene">
+    <a-scene mindar-image="imageTargetSrc: targets.mind; maxTrack: 2" color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false" id="scene"   gesture-detector>
       <a-assets>
         <a-asset-item id="book" src="model/basketball_court.glb"></a-asset-item>
         <a-asset-item id="spidey" src="model/building.gltf"></a-asset-item>
       
       </a-assets>
 
-      <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+      <a-camera position="0 0 0" look-controls="enabled: false"   raycaster="objects: .clickable"></a-camera>
 
-      <a-entity mindar-image-target="targetIndex: 0">
-        <a-gltf-model rotation="90 0 0 " position="0 0 0.1" scale="0.0004 0.0004 0.0004" src="#book" id="model">
-          <a-video src="video.mp4"></a-video>
+      <a-entity mindar-image-target="targetIndex: 0" class="clickable"
+      gesture-handler="minScale: 0.25; maxScale: 10">
+        <a-gltf-model rotation="90 0 0 " position="0 0 0.1" scale="0.0004 0.0004 0.0004" src="#book" id="model">       
       </a-entity>
-      <a-entity mindar-image-target="targetIndex: 1">
+
+      <a-entity mindar-image-target="targetIndex: 1" class="clickable"
+      gesture-handler="minScale: 0.25; maxScale: 10">
         <a-gltf-model rotation="90 0 0 " position="-0.2 0 0.1" scale="0.0001 0.0001 0.0001" src="#spidey" id="model">
       </a-entity>
+
     </a-scene>
   </body>
 
@@ -40,44 +45,47 @@
     //    scene.addEventListener('touchmove', event => {movingTouch(event,elem)})
     //    })
 
-    const model = document.getElementById('model')
+
+    // break
+
+  //   const model = document.getElementById('model')
   
-    const manager = new Hammer.Manager(scene)
-    const pinch = new Hammer.Pinch()
-    manager.add(pinch)
+  //   const manager = new Hammer.Manager(scene)
+  //   const pinch = new Hammer.Pinch()
+  //   manager.add(pinch)
   
-    document.querySelectorAll('[id=model]').forEach(elem=>{
-      manager.on('pinch', function(ev) {
-      if (!elem) return
+  //   document.querySelectorAll('[id=model]').forEach(elem=>{
+  //     manager.on('pinch', function(ev) {
+  //     if (!elem) return
   
-      const curr = elem.getAttribute('scale')
-      const scale = (ev.scale - 1)*0.00001
+  //     const curr = elem.getAttribute('scale')
+  //     const scale = (ev.scale - 1)*0.00001
      
   
-      elem.setAttribute('scale', {
-        'x': curr.x + scale,
-        'y': curr.y + scale,
-        'z': curr.z + scale
-      })
-    })
-  })
+  //     elem.setAttribute('scale', {
+  //       'x': curr.x + scale,
+  //       'y': curr.y + scale,
+  //       'z': curr.z + scale
+  //     })
+  //   })
+  // })
   
   
   
-    const movingTouch = (event,elem) => {
-      if (!model) return
+  //   const movingTouch = (event,elem) => {
+  //     if (!model) return
   
-      const curr = elem.getAttribute('rotation')
-      let touches = event.changedTouches
+  //     const curr = elem.getAttribute('rotation')
+  //     let touches = event.changedTouches
   
-      for (touch of touches) {
-        elem.setAttribute('rotation', {
-          'x': curr.x - touch.pageY*0.01,
-				'y': curr.y + touch.pageX*0.01,
-				'z': curr.z
-        })
-      }
-    }
+  //     for (touch of touches) {
+  //       elem.setAttribute('rotation', {
+  //         'x': curr.x - touch.pageY*0.01,
+	// 			'y': curr.y + touch.pageX*0.01,
+	// 			'z': curr.z
+  //       })
+  //     }
+  //   }
 
 
 
