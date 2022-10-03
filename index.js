@@ -3,7 +3,7 @@ function run(){
 
 
      document.querySelectorAll('[id=model]').forEach(elem=>{
-     elem.setAttribute("scale"," 0.5 0.5 0.5")
+     elem.setAttribute("scale","0.0001 0.0001 0.0001")
      console.log(elem.getAttribute("scale"));
    })
 
