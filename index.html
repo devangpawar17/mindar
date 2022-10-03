@@ -52,13 +52,23 @@
 
   </body>
 
-
   <script>
-     const model = document.getElementById('model')
+
+  // ref - https://github.com/jsimonson2013/ar-sample/blob/master/index.html
 
 
+    // const scene = document.getElementById('scene')
+    
+    //    document.querySelectorAll('[id=model]').forEach(elem=>{
+    //    scene.addEventListener('touchmove', event => {movingTouch(event,elem)})
+    //    })
 
-     const manager = new Hammer.Manager(scene)
+
+    // break
+
+    const model = document.getElementById('model')
+  
+    const manager = new Hammer.Manager(scene)
     const pinch = new Hammer.Pinch()
     manager.add(pinch)
   
@@ -98,5 +108,6 @@
 
     
   </script>
+
 
 </html>

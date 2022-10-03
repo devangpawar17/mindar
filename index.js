@@ -59,17 +59,6 @@ console.log("plane click");
 
 
 
-// ref - https://github.com/jsimonson2013/ar-sample/blob/master/index.html
-
-
-    // const scene = document.getElementById('scene')
-    
-    //    document.querySelectorAll('[id=model]').forEach(elem=>{
-    //    scene.addEventListener('touchmove', event => {movingTouch(event,elem)})
-    //    })
-
-
-    // break
 
    
 
