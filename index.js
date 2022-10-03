@@ -51,17 +51,23 @@ document.addEventListener("DOMContentLoaded", function() {
   console.log("target found");
   });
   // detect target lost
-  exampleTarget.addEventListener("targetLost", event => {
-  console.log("target lost");
-  document.querySelectorAll('[id=model]').forEach(elem=>{
-    elem.setAttribute('scale', {
-      'x': 0.0001,
-      'y': 0.0001,
-      'z': 0.0001
-    })
-   console.log(elem.getAttribute("scale"));
- })
-  });
+
+  document.querySelectorAll('[id=target]').forEach(elem=>{
+    elem.addEventListener("targetLost", event => {
+      console.log("target lost");
+      document.querySelectorAll('[id=model]').forEach(elem=>{
+        elem.setAttribute('scale', {
+          'x': 0.0001,
+          'y': 0.0001,
+          'z': 0.0001
+        })
+       console.log(elem.getAttribute("scale"));
+     })
+      });
+  })
+ 
+
+
   // detect click event
     // examplePlane.addEventListener("click", event => {
     // console.log("plane click");
