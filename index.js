@@ -1,13 +1,3 @@
-function run(){
-    console.log("hello");
-
-
-     document.querySelectorAll('[id=model]').forEach(elem=>{
-     elem.setAttribute("scale","0.0001 0.0001 0.0001")
-     console.log(elem.getAttribute("scale"));
-   })
-
-  }
 
 
 
@@ -66,3 +56,74 @@ console.log("plane click");
 });
   });
 
+
+
+
+// ref - https://github.com/jsimonson2013/ar-sample/blob/master/index.html
+
+
+    // const scene = document.getElementById('scene')
+    
+    //    document.querySelectorAll('[id=model]').forEach(elem=>{
+    //    scene.addEventListener('touchmove', event => {movingTouch(event,elem)})
+    //    })
+
+
+    // break
+
+    const model = document.getElementById('model')
+
+
+    function run(){
+      console.log("hello");
+  
+  
+       document.querySelectorAll('[id=model]').forEach(elem=>{
+        elem.setAttribute('scale', {
+          'x': 0.0001,
+          'y': 0.0001,
+          'z': 0.0001
+        })
+       console.log(elem.getAttribute("scale"));
+     })
+  
+    }
+  
+
+  
+    const manager = new Hammer.Manager(scene)
+    const pinch = new Hammer.Pinch()
+    manager.add(pinch)
+  
+    document.querySelectorAll('[id=model]').forEach(elem=>{
+      manager.on('pinch', function(ev) {
+      if (!elem) return
+  
+      const curr = elem.getAttribute('scale')
+      const scale = (ev.scale - 1)*0.00001
+     
+  
+      elem.setAttribute('scale', {
+        'x': curr.x + scale,
+        'y': curr.y + scale,
+        'z': curr.z + scale
+      })
+    })
+  })
+  
+  
+  
+    const movingTouch = (event,elem) => {
+      if (!model) return
+  
+      const curr = elem.getAttribute('rotation')
+      let touches = event.changedTouches
+  
+      for (touch of touches) {
+        elem.setAttribute('rotation', {
+          'x': curr.x - touch.pageY*0.01,
+				'y': curr.y + touch.pageX*0.01,
+				'z': curr.z
+        })
+      }
+    }
