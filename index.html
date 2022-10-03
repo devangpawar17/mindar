@@ -75,8 +75,10 @@
       if (!elem) return
   
       const curr = elem.getAttribute('scale')
-      const scale =  (ev.scale - 1)*0.00001.limit()
-   
+      const scale =  (ev.scale - 1)*0.00001
+      
+
+     
  
   
       elem.setAttribute('scale', {
