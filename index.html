@@ -76,7 +76,8 @@
   
       const curr = elem.getAttribute('scale')
       const scale =  (ev.scale - 1)*0.00001.limit()
-      if(scale<0){
+      
+      if(scale<-0.1){
         scale = 0
       }
      
