@@ -75,7 +75,7 @@
       if (!elem) return
   
       const curr = elem.getAttribute('scale')
-      const scale =  (ev.scale - 1)*0.00001
+      const scale =  (ev.scale - 1)*0.000001
       
       
      
@@ -87,13 +87,7 @@
         'z': curr.z + scale
       })
 
-      if(curr.x<-0.1){
-        elem.setAttribute('scale', {
-        'x': 0.0001,
-        'y': 0.0001,
-        'z': 0.0001
-      })
-      }
+      
 
 
     })
