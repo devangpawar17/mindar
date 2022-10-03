@@ -71,7 +71,7 @@ console.log("plane click");
 
     // break
 
-    const model = document.getElementById('model')
+   
 
 
     function run(){
@@ -91,39 +91,4 @@ console.log("plane click");
   
 
   
-    const manager = new Hammer.Manager(scene)
-    const pinch = new Hammer.Pinch()
-    manager.add(pinch)
-  
-    document.querySelectorAll('[id=model]').forEach(elem=>{
-      manager.on('pinch', function(ev) {
-      if (!elem) return
-  
-      const curr = elem.getAttribute('scale')
-      const scale = (ev.scale - 1)*0.00001
-     
-  
-      elem.setAttribute('scale', {
-        'x': curr.x + scale,
-        'y': curr.y + scale,
-        'z': curr.z + scale
-      })
-    })
-  })
-  
-  
-  
-    const movingTouch = (event,elem) => {
-      if (!model) return
-  
-      const curr = elem.getAttribute('rotation')
-      let touches = event.changedTouches
-  
-      for (touch of touches) {
-        elem.setAttribute('rotation', {
-          'x': curr.x - touch.pageY*0.01,
-				'y': curr.y + touch.pageX*0.01,
-				'z': curr.z
-        })
-      }
-    }
+   
