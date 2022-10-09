@@ -28,7 +28,12 @@
       <a-assets>
         <a-asset-item id="book" src="model/small_2bhk.gltf"></a-asset-item>
         <a-asset-item id="spidey" src="model/building.gltf"></a-asset-item>
-        <video id="vid" autoplay="true" loop="true" src="king.mp4"></video>
+        <video id="vid" autoplay="true" loop="true" src="king.mp4"  preload="auto"  response-type="arraybuffer"
+        loop
+        crossorigin
+        webkit-playsinline
+        autoplay
+        playsinline></video>
       
       </a-assets>
 
@@ -36,7 +41,7 @@
 
       <a-entity mindar-image-target="targetIndex: 0" id="target">
         <!-- <a-gltf-model rotation="90 0 0 " position="0 0 0.1" scale="1 1 1" src="#book" id="model">        -->
-          <a-video src="#vid" webkit-playsinline playsinline width="1" height="0.552" position="0 0 0"></a-video>
+          <a-video src="#vid" width="1" height="0.552" position="0 0 0"></a-video>
       </a-entity>
 
       <a-entity mindar-image-target="targetIndex: 1" id="target">
