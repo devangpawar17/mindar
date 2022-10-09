@@ -62,7 +62,7 @@ document.addEventListener("DOMContentLoaded", function() {
           'y': 0.0001,
           'z': 0.0001
         })
-        
+        document.getElementById("vid").pause()
        console.log(elem.getAttribute("scale"));
      })
       });
