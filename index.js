@@ -61,6 +61,7 @@ document.addEventListener("DOMContentLoaded", function() {
           'y': 0.0001,
           'z': 0.0001
         })
+        elem.pause()
        console.log(elem.getAttribute("scale"));
      })
       });
