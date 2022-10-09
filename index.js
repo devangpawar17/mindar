@@ -55,6 +55,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
   document.querySelectorAll('[id=target]').forEach(elem=>{
     elem.addEventListener("targetLost", event => {
+      document.getElementById("vid").pause()
       console.log("target lost");
       document.querySelectorAll('[id=model]').forEach(elem=>{
         elem.setAttribute('scale', {
@@ -62,7 +63,7 @@ document.addEventListener("DOMContentLoaded", function() {
           'y': 0.0001,
           'z': 0.0001
         })
-        document.getElementById("vid").pause()
+  
        console.log(elem.getAttribute("scale"));
      })
       });
