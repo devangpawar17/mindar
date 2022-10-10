@@ -6,7 +6,7 @@
     <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.1.5/dist/mindar-image-aframe.prod.js"></script>
     <script src="https://hammerjs.github.io/dist/hammer.js"></script>
     <script src="index.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
 
 
 
@@ -27,7 +27,7 @@
     <a-scene mindar-image="filterMinCF:0.1; filterBeta:10; imageTargetSrc: targets.mind; maxTrack: 2" color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false" id="scene">
       <a-assets>
         <a-asset-item id="book" src="model/building.gltf"></a-asset-item>
-        <a-asset-item id="spidey" src="model/car.glb"></a-asset-item>
+        <a-asset-item id="spidey" src="model/basketball_court.glb"></a-asset-item>
 
         <video controls id="vid1" src="king.mp4"  preload="auto"  response-type="arraybuffer"
         loop
@@ -53,7 +53,7 @@
       </a-entity>
 
       <a-entity mindar-image-target="targetIndex: 1" id="target">
-        <a-gltf-model rotation="90 0 0 " position="0 0 0" scale="0.5 0.5 0.5" src="#spidey" id="model" animation-mixer>    
+        <a-gltf-model rotation="90 0 0 " position="0 0 0" scale="0.00005 0.00005 0.00005" src="#spidey" id="model" animation-mixer>    
       </a-entity>
 
       <a-entity mindar-image-target="targetIndex: 2" id="target">
