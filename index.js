@@ -62,19 +62,10 @@ document.addEventListener("DOMContentLoaded", function() {
 
   })
 
-
-  var trgIncr = 1
-  document.querySelectorAll('a-entity').forEach(elem=>{
-    var singleImg =  document.getElementById(`image-target${trgIncr}`)
-    if(singleImg != null){
-      singleImg.addEventListener("targetFound",event => {
-        document.getElementById(`vid${trgIncr}`).play()
-      })
-    }
-    
-    trgIncr = trgIncr +1
+  document.getElementById("image-target1").addEventListener("targetFound", event => {
+    document.getElementById("vid1").play()
   })
-
+  
 
 
 
@@ -82,8 +73,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
   exampleTarget.addEventListener("targetFound", event => {
   console.log("target found");
-
-
   });
   // detect target lost
 
