@@ -62,22 +62,38 @@ document.addEventListener("DOMContentLoaded", function() {
 
   })
 
-  document.getElementById("image-target1").addEventListener("targetFound", event => {
-    document.getElementById("vid1").play()
-  })
+  // document.getElementById("image-target1").addEventListener("targetFound", event => {
+  //   document.getElementById("vid1").play()
+  // })
 
-  document.getElementById("image-target2").addEventListener("targetFound", event => {
-    document.getElementById("vid2").play()
-  })
+  // document.getElementById("image-target2").addEventListener("targetFound", event => {
+  //   document.getElementById("vid2").play()
+  // })
   
-  document.getElementById("image-target1").addEventListener("targetLost", event => {
-    document.getElementById("vid1").pause()
-  })
+  // document.getElementById("image-target1").addEventListener("targetLost", event => {
+  //   document.getElementById("vid1").pause()
+  // })
 
-  document.getElementById("image-target2").addEventListener("targetLost", event => {
-    document.getElementById("vid2").pause()
-  })
+  // document.getElementById("image-target2").addEventListener("targetLost", event => {
+  //   document.getElementById("vid2").pause()
+  // })
 
+
+  //video listeners
+
+  var videotag = document.getElementsByTagName("video")
+  var videolength = videotag.length
+  for (let i = 1; i <= videolength; i++) {
+        document.getElementById(`image-target${i}`).addEventListener("targetFound", event => {
+        document.getElementById(`vid${i}`).play()
+
+        document.getElementById(`image-target${i}`).addEventListener("targetLost", event => {
+        document.getElementById(`vid${i}`).pause()
+      })
+
+      })
+
+  }
 
 
   // detect target found
