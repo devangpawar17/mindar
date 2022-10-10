@@ -49,9 +49,9 @@ document.addEventListener("DOMContentLoaded", function() {
   // detect target found
   exampleTarget.addEventListener("targetFound", event => {
   console.log("target found");
-    for (let i = 1; i < 3; i++) {
-      document.getElementById(`vid${i}`).play()
-    }
+ 
+      document.getElementById(`vid`).play()
+ 
  
   });
   // detect target lost
