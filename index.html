@@ -27,16 +27,16 @@
     <a-scene mindar-image="filterMinCF:0.1; filterBeta:10; imageTargetSrc: targets.mind; maxTrack: 2" color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false" id="scene">
       <a-assets>
         <a-asset-item id="book" src="model/small_building.glb"></a-asset-item>
-        <a-asset-item id="spidey" src="model/small_building.glb"></a-asset-item>
+        <a-asset-item id="spidey" src="model/basketball.glb"></a-asset-item>
 
-        <video controls id="vid" class="video1" src="king.mp4"  preload="auto"  response-type="arraybuffer"
+        <video controls id="vid1" src="king.mp4"  preload="auto"  response-type="arraybuffer"
         loop
         crossorigin
         webkit-playsinline
         autoplay
         playsinline></video>
 
-        <video controls id="vid" class="video2" src="nature.mp4"  preload="auto"  response-type="arraybuffer"
+        <video controls id="vid2" src="nature.mp4"  preload="auto"  response-type="arraybuffer"
         loop
         crossorigin
         webkit-playsinline
@@ -48,7 +48,7 @@
       <a-camera position="0 0 0" look-controls="enabled: false" ></a-camera>
 
       <a-entity mindar-image-target="targetIndex: 0" id="target">
-          <a-video src=".video1" width="1" height="0.552" position="0 0 0"></a-video>
+          <a-video src="#vid1" width="1" height="0.552" position="0 0 0" id="vid"></a-video>
       </a-entity>
 
       <a-entity mindar-image-target="targetIndex: 1" id="target">
@@ -60,7 +60,7 @@
       </a-entity>
 
       <a-entity mindar-image-target="targetIndex: 3" id="target">
-        <a-video src=".video2" width="1" height="0.552" position="0 0 0"></a-video>
+        <a-video src="#vid2" width="1" height="0.552" position="0 0 0" id="vid"></a-video>
     </a-entity>
 
     
