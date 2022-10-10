@@ -27,7 +27,7 @@
     <a-scene mindar-image="filterMinCF:0.1; filterBeta:10; imageTargetSrc: targets.mind; maxTrack: 2" color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false" id="scene">
       <a-assets>
         <a-asset-item id="book" src="model/building.gltf"></a-asset-item>
-        <a-asset-item id="spidey" src="model/basketball_court.glb"></a-asset-item>
+        <a-asset-item id="spidey" src="model/car.glb"></a-asset-item>
 
         <video controls id="vid1" src="king.mp4"  preload="auto"  response-type="arraybuffer"
         loop
@@ -53,11 +53,11 @@
       </a-entity>
 
       <a-entity mindar-image-target="targetIndex: 1" id="target">
-        <a-gltf-model rotation="90 0 0 " position="0 0 0" scale="0.00005 0.00005 0.00005" src="#spidey" id="model">    
+        <a-gltf-model rotation="90 0 0 " position="0 0 0" scale="0.00005 0.00005 0.00005" src="#spidey" id="model" animation-mixer>    
       </a-entity>
 
       <a-entity mindar-image-target="targetIndex: 2" id="target">
-        <a-gltf-model rotation="90 0 0 " position="-0.2 0 0.1" scale="0.0001 0.0001 0.0001" src="#book" id="model" animation="property: rotation; to: 0 360 0; loop: true; dur: 10000; easing: linear">    
+        <a-gltf-model rotation="90 0 0 " position="-0.2 0 0.1" scale="0.0001 0.0001 0.0001" src="#book" id="model">    
       </a-entity>
 
       <a-entity mindar-image-target="targetIndex: 3">
