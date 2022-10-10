@@ -46,13 +46,44 @@ document.addEventListener("DOMContentLoaded", function() {
   sceneEl.addEventListener("arError", (event) => {
   // console.log("MindAR failed to start")
   });
+
+
+
+     
+  // video controls
+
+  var imgIncr = 1
+  document.querySelectorAll('a-entity').forEach(elem=>{
+    if(elem.id==""){
+      
+      elem.setAttribute('id',`image-target${imgIncr}`)
+      imgIncr = imgIncr+1
+    }
+
+  })
+
+
+  var trgIncr = 1
+  document.querySelectorAll('a-entity').forEach(elem=>{
+    var singleImg =  document.getElementById(`image-target${trgIncr}`)
+    if(singleImg != null){
+      singleImg.addEventListener("targetFound",event => {
+        document.getElementById(`vid${trgIncr}`).play()
+      })
+    }
+    
+    trgIncr = trgIncr +1
+  })
+
+
+
+
   // detect target found
+
   exampleTarget.addEventListener("targetFound", event => {
   console.log("target found");
- 
-      document.getElementById(`vid`).play()
- 
- 
+
+
   });
   // detect target lost
 
@@ -71,6 +102,9 @@ document.addEventListener("DOMContentLoaded", function() {
      })
       });
   })
+
+
+  
  
 
 
@@ -97,8 +131,10 @@ document.addEventListener("DOMContentLoaded", function() {
     
       }
 
-     
-  
+
+
+
+
   
 
   
