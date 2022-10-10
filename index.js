@@ -65,7 +65,18 @@ document.addEventListener("DOMContentLoaded", function() {
   document.getElementById("image-target1").addEventListener("targetFound", event => {
     document.getElementById("vid1").play()
   })
+
+  document.getElementById("image-target2").addEventListener("targetFound", event => {
+    document.getElementById("vid2").play()
+  })
   
+  document.getElementById("image-target1").addEventListener("targetLost", event => {
+    document.getElementById("vid1").pause()
+  })
+
+  document.getElementById("image-target2").addEventListener("targetLost", event => {
+    document.getElementById("vid2").pause()
+  })
 
 
 
@@ -78,7 +89,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
   document.querySelectorAll('[id=target]').forEach(elem=>{
     elem.addEventListener("targetLost", event => {
-      document.getElementById("vid").pause()
+     
       console.log("target lost");
       document.querySelectorAll('[id=model]').forEach(elem=>{
         elem.setAttribute('scale', {
