@@ -120,14 +120,13 @@ document.addEventListener("DOMContentLoaded", function() {
   })
 
 
-  
- 
 
 
   // detect click event
     // examplePlane.addEventListener("click", event => {
     // console.log("plane click");
     // });
+    
 
     });
   
